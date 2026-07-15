@@ -122,3 +122,164 @@ aside section{
     margin: 0;
     padding: 0;
 }
+
+.avatar-mn{
+    font-size: 55px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--instrument-Sans);
+}
+
+
+.contact-details header {
+    width: 100%;
+    display: grid;
+    padding: 45px;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 35% 65%;
+}
+
+
+.profile{
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.profile h1, .profile span{
+    margin: 10px 0 10px 20px;
+    gap: 5px;
+}
+
+.action-btns{
+    grid-row: 1;
+    grid-column:2;
+    width: max-content;
+    flex-direction: row;
+
+}
+.input-fields{
+    grid-row: 2;
+    grid-column: 1/3;
+}
+
+.action-btns{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+}
+
+
+
+.edit-btn{
+    display: flex;
+    height: 35px;
+    width: 95px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 10px 30px 10px;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    color: #5a5a5a;
+}
+
+.delete-btn{
+    display: flex;
+    height: 35px;
+    width: 95px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 30px 30px 10px;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid var(--destructive);
+    color: var(--destructive);
+}
+
+.edit-btn:hover{
+    background-color: #efefef;
+}
+.delete-btn:hover{
+    background-color: rgb(246 0 0 / 0.11);
+}
+
+.add-btn:hover{
+    background-color: rgb(49 116 211 / 0.78);
+}
+.input-fields {
+    width: 100%;
+    height: max-content;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.field:last-child {
+    border-bottom: none;
+}
+
+.label {
+    width: 110px;
+    padding: 18px 24px;
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.value {
+    flex: 1;
+    padding: 18px 24px;
+    color: #1f2937;
+    font-size: 15px;
+}
+
+
+
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .contact-details {
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .contact-details header {
+        gap: 20px;
+    }
+
+    .action-btns{
+        justify-content: center;
+    }
+
+    .edit-btn ,.delete-btn{
+        align-self: center;
+    }
+}
