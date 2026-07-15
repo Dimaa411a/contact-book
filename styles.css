@@ -294,9 +294,223 @@ aside section{
     padding: 5px;
 
 }
-    ul {
-        padding: 5px;
-    }
+
+ul {
+    padding: 5px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;                     /* top:0 right:0 bottom:0 left:0 */
+    background: rgba(0,0,0,.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 450px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content input,.modal-content textarea {
+    padding-left: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+
+}
+
+
+.color-picker{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+}
+.color-picker span {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(118, 118, 118)
+}
+
+#closeBtn {
+    display: flex;
+    height: 35px;
+    width: 95px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid var(--destructive);
+    color: var(--destructive);
+}
+
+#saveBtn {
+    display: flex;
+    height: 35px;
+    width: 95px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    color: #5a5a5a;
+}
+
+#closeBtn:hover{
+    background-color: rgb(246 0 0 / 0.11);
+}
+
+#saveBtn:hover {
+    background-color: rgb(49 211 52 / 0.38);
+}
+
+.modal-buttons{
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-content-edit {
+    width: 450px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content-edit input,.modal-content-edit textarea {
+    padding-left: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+
+}
+
+
+.color-picker{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+}
+.color-picker span {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(118, 118, 118)
+}
+
+#close-editBtn {
+    display: flex;
+    height: 35px;
+    width: 95px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid var(--destructive);
+    color: var(--destructive);
+}
+
+#save-editBtn {
+    display: flex;
+    height: 35px;
+    width: 95px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    color: #5a5a5a;
+}
+
+#close-editBtn:hover{
+    background-color: rgb(246 0 0 / 0.11);
+}
+
+#save-editBtn:hover {
+    background-color: rgb(49 211 52 / 0.38);
+}
+
+.delete-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.delete-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.delete-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.button-yes,
+.button-no {
+    width: 90px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.button-no {
+    color: var(--destructive);
+    border: 1px solid var(--destructive);
+}
+
+.button-yes {
+    border: 1px solid #4cd503;
+    color: #4cd503;
+}
+
+.button-no:hover {
+    background-color: rgb(246 0 0 / 0.11);
+}
+.button-yes:hover {
+    background-color: rgb(49 211 52 / 0.38);
+}
 
 @media (max-width: 1024px) {
     main {

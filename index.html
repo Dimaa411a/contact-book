@@ -65,6 +65,50 @@
             </header>
         </section>
     </main>
+    <div class="modal hidden" id="addModal">
+        <div class="modal-content">
+            <h2>Add Contact</h2>
+            <input id="modal-name" type="text" placeholder="Name">
+            <input id="modal-phone" type="text" placeholder="Phone">
+            <input id="modal-email" type="email" placeholder="Email">
+            <textarea id="modal-note" placeholder="Note"></textarea>
+            <div class="color-picker">
+                <span>icon color:</span>
+                <input type="color" id="modal-color">
+            </div>
+            <div class="modal-buttons">
+                <button id="saveBtn">Save</button>
+                <button id="closeBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal hidden" id="addModalEdit">
+        <div class="modal-content-edit">
+            <h2>Edit contact</h2>
+            <input id="edit-name" type="text" placeholder="Name">
+            <input id="edit-phone" type="text" placeholder="Phone">
+            <input id="edit-email" type="email" placeholder="Email">
+            <textarea id="edit-note" placeholder="Note"></textarea>
+            <div class="color-picker">
+                <span>icon color:</span>
+                <input type="color" id="edit-color">
+            </div>
+            <div class="modal-buttons">
+                <button id="save-editBtn">Save</button>
+                <button id="close-editBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="delete-modal" class="delete-modal hidden">
+        <div class="delete-box">
+            <h2>Are you sure?</h2>
+
+            <div class="delete-buttons">
+                <button class="button-yes">Yes</button>
+                <button class="button-no">No</button>
+            </div>
+        </div>
+    </div>
 </body>
     <script src="main.js"></script>
 </html>

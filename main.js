@@ -1,5 +1,6 @@
 let users = [
     {
+        id:1,
         name: "John Doe",
         phone: "0123456789",
         email: "john@email.com",
@@ -7,6 +8,7 @@ let users = [
         style: 'lightblue'
     },
     {
+        id:2,
         name: "Liza Smith",
         phone: "0123456789",
         email: "liza@email.com",
@@ -14,6 +16,7 @@ let users = [
         style: 'lightgreen'
     },
     {
+        id:3,
         name: "Andrii Petrovych",
         phone: "0543456456",
         email: "Andrii@email.com",
@@ -21,6 +24,7 @@ let users = [
         style: 'lightgreen'
     },
     {
+        id:4,
         name: "Dima Andreiko",
         phone: "380 68 837 27 91",
         email: "dimaandreiko8888@email.com",
@@ -28,6 +32,7 @@ let users = [
         style: 'lightpink'
     },
     {
+        id:5,
         name: "Ihor Ihor",
         phone: "380 50 854 29 57",
         email: "ihor06@email.com",
@@ -35,6 +40,7 @@ let users = [
         style: 'magenta'
     },
     {
+        id:6,
         name: "Iliina Diana",
         phone: "380 97 876 29 67",
         email: "carrot997@email.com",
@@ -42,6 +48,7 @@ let users = [
         style: 'lightgray'
     },
     {
+        id:7,
         name: "John Sena",
         phone: "380 98 988 39 12",
         email: "johnSena@email.com",
@@ -49,6 +56,7 @@ let users = [
         style: 'lightgray'
     },
     {
+        id:8,
         name: "Elon Musk",
         phone: "12567 765 543",
         email: "SpaceX@email.com",
@@ -56,6 +64,7 @@ let users = [
         style: 'purple'
     },
     {
+        id:9,
         name: "Zen Chen",
         phone: "49 83875 737",
         email: "chen@email.com",
@@ -73,47 +82,48 @@ const userPhone = document.querySelector(".phone-field");
 const userEmail = document.querySelector(".email-field");
 const userNote = document.querySelector(".note-field");
 
-function sortUsers(){
-    const firstLetter = new Set();
-    users.forEach(user => {
-        firstLetter.add(user.name[0]);
-    })
+function sortUsers(usersToRender) {
+    contactList.innerHTML = "";
 
-    const sortedLetters = [...firstLetter].sort();
-    sortedLetters.forEach((letter) => {
-        contactList.innerHTML +=
-            `<div class="letter-container">\n
+    const firstLetters = [...new Set(
+        usersToRender.map(user => user.name[0].toUpperCase())
+    )].sort();
+
+    firstLetters.forEach(letter => {
+        contactList.innerHTML += `
+            <div class="letter-container">
                 <h3>${letter}</h3>
-                <ul></ul>\n
-            </div>`
-    })
+                <ul></ul>
+            </div>
+        `;
+    });
 
     document.querySelectorAll(".letter-container").forEach(container => {
-
         const letter = container.querySelector("h3").textContent;
+        const ul = container.querySelector("ul");
 
-        users.forEach(user => {
+        usersToRender.forEach(user => {
+            if (user.name[0].toUpperCase() !== letter) return;
 
-            const initials = user["name"].match(/\b\w/g).join('');
-            const ul = container.querySelector("ul");
+            const initials = user.name.match(/\b\w/g).join("");
 
-            if (user.name[0] == letter) {
-                ul.innerHTML += `            
-                           <li class=\"contact\">\n
-                            <div class="avatar" style="background-color: ${user.style}">${initials}</div>\n
-                            <div class=\"contact-info\">\n
-                              <h4>${user.name}</h4>\n
-                              <span class=\"phone\">${user.phone}</span>\n 
-                             <span class=\"email\" hidden>${user.email}</span>\n 
-                              <span class=\"note\" hidden>${user.note}</span>\n 
-                            </div>\n
-                          </li>`
-            }
-        })
-    })
+            ul.innerHTML += `
+                <li class="contact" data-id="${user.id}">
+                    <div class="avatar" style="background-color:${user.style}">
+                        ${initials}
+                    </div>
+
+                    <div class="contact-info">
+                        <h4>${user.name}</h4>
+                        <span class="phone">${user.phone}</span>
+                        <span class="email" hidden>${user.email}</span>
+                        <span class="note" hidden>${user.note}</span>
+                    </div>
+                </li>
+            `;
+        });
+    });
 }
-
-sortUsers();
 
 
 
@@ -132,6 +142,8 @@ contactList.addEventListener("click", (event) => {
     const contactAvatar = contact.querySelector(".avatar");
     if (!contact) return;
 
+    selectedUserId = Number(contact.dataset.id);
+
     userName.textContent = contact.querySelector("h4").textContent;
 
     userPhone.textContent =
@@ -149,4 +161,148 @@ contactList.addEventListener("click", (event) => {
     avatar.textContent = contactAvatar.textContent;
 
     avatar.style.backgroundColor = contactAvatar.style.backgroundColor;
+});
+
+sortUsers(users);
+
+const search = document.getElementById("search");
+
+search.addEventListener("input", (event) => {
+    const value = event.target.value.toLowerCase()
+
+    const filteredUsers = users.filter(user =>
+        user.name.toLowerCase().includes(value) ||
+        user.phone.toLowerCase().includes(value) ||
+        user.email.toLowerCase().includes(value)
+    );
+
+    sortUsers(filteredUsers);
+});
+
+addButton = document.querySelector(".add-btn");
+
+const modal = document.getElementById("addModal");
+
+const addBtn = document.querySelector(".add-btn");
+const closeBtn = document.getElementById("closeBtn");
+const saveBtn = document.getElementById("saveBtn");
+
+
+addBtn.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+});
+
+closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+});
+
+modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.classList.add("hidden");
+    }
+});
+
+
+const modaalName = document.querySelector("#modal-name");
+const modaalPhone = document.querySelector("#modal-phone");
+const modaalEmail = document.querySelector("#modal-email");
+const modaalNote = document.querySelector("#modal-note");
+const modealColor = document.querySelector("#modal-color");
+
+
+saveBtn.addEventListener("click", (event) => {
+    users.push({
+        id: users.length + 1,
+        name: modaalName.value,
+        phone: modaalPhone.value,
+        email: modaalEmail.value,
+        note: modaalNote.value,
+        style: modealColor.value,
+    },)
+
+    sortUsers(users);
+
+    modaalName.value = "";
+    modaalPhone.value = "";
+    modaalEmail.value = "";
+    modaalNote.value = "";
+    modealColor.value = "#2E63D6";
+
+})
+
+
+const modalEdit = document.getElementById("addModalEdit");
+const editBtn = document.querySelector(".edit-btn");
+const closeEditBtn = document.getElementById("close-editBtn");
+const saveEditBtn = document.getElementById("save-editBtn");
+
+editBtn.addEventListener("click", () => {
+    modalEdit.classList.remove("hidden");
+})
+
+closeEditBtn.addEventListener("click", () => {
+    modalEdit.classList.add("hidden");
+});
+
+const editName = document.querySelector("#edit-name");
+const editPhone = document.querySelector("#edit-phone");
+const editEmail = document.querySelector("#edit-email");
+const editNote = document.querySelector("#edit-note");
+const editColor = document.querySelector("#edit-color");
+let selectedUserId = null;
+
+editBtn.addEventListener("click", () => {
+
+    if (selectedUserId === null) return;
+
+    const user = users.find(user => user.id === selectedUserId);
+
+    editName.value = user.name;
+    editPhone.value = user.phone;
+    editEmail.value = user.email;
+    editNote.value = user.note;
+    editColor.value = user.style;
+
+    modalEdit.classList.remove("hidden");
+});
+
+saveEditBtn.addEventListener("click", () => {
+
+    const user = users.find(user => user.id === selectedUserId);
+
+    user.name = editName.value;
+    user.phone = editPhone.value;
+    user.email = editEmail.value;
+    user.note = editNote.value;
+    user.style = editColor.value;
+
+    sortUsers(users);
+
+    modalEdit.classList.add("hidden");
+});
+
+const delete_modal = document.querySelector(".delete-modal");
+
+const deleteBtn = document.querySelector(".delete-btn");
+const buttonYes = document.querySelector(".button-yes");
+const buttonNo = document.querySelector(".button-no");
+
+buttonYes.addEventListener("click", () => {
+
+    users = users.filter(user => user.id !== selectedUserId);
+
+    sortUsers(users);
+
+    selectedUserId = null;
+
+    delete_modal.classList.add("hidden");
+});
+
+
+deleteBtn.addEventListener("click", () => {
+    delete_modal.classList.remove("hidden");
+});
+
+buttonNo.addEventListener("click", () => {
+    delete_modal.classList.add("hidden");
 });
