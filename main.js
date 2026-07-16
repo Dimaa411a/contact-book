@@ -90,6 +90,8 @@ const userPhone = document.querySelector(".phone-field");
 const userEmail = document.querySelector(".email-field");
 const userNote = document.querySelector(".note-field");
 
+let selectedUserId = null;
+
 function sortUsers(usersToRender) {
     contactList.innerHTML = "";
 
@@ -136,14 +138,7 @@ function sortUsers(usersToRender) {
     });
 }
 
-
-
-contactList.addEventListener("click", (event) => {
-
-    const contact = event.target.closest(".contact");
-
-    if (!contact) return;
-
+function selectContact(contact) {
     contactList.querySelectorAll(".contact").forEach(item => {
         item.classList.remove("active");
     });
@@ -172,9 +167,25 @@ contactList.addEventListener("click", (event) => {
     avatar.textContent = contactAvatar.textContent;
 
     avatar.style.backgroundColor = contactAvatar.style.backgroundColor;
+}
+
+contactList.addEventListener("click", (event) => {
+
+    const contact = event.target.closest(".contact");
+
+    if (!contact) return;
+
+    selectContact(contact);
 });
 
 sortUsers(users);
+
+const firstContact = contactList.querySelector(".contact");
+
+if (firstContact) {
+    selectContact(firstContact);
+}
+
 
 const search = document.getElementById("search");
 
@@ -260,7 +271,6 @@ const editPhone = document.querySelector("#edit-phone");
 const editEmail = document.querySelector("#edit-email");
 const editNote = document.querySelector("#edit-note");
 const editColor = document.querySelector("#edit-color");
-let selectedUserId = null;
 
 editBtn.addEventListener("click", () => {
 
