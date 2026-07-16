@@ -1,11 +1,19 @@
 let users = [
     {
-        id:1,
+        id:0,
         name: "John Doe",
         phone: "0123456789",
         email: "john@email.com",
         note: "johndoe",
         style: 'lightblue'
+    },
+    {
+        id:1,
+        name: "Maria Novak",
+        phone: "+1 (312) 555-0146",
+        email: "maria.novak@fastmail.com",
+        note: "Study group partner — prefers texts over calls. Met at the Week 3 workshop.",
+        style: '#2E63D6'
     },
     {
         id:2,
@@ -84,6 +92,9 @@ const userNote = document.querySelector(".note-field");
 
 function sortUsers(usersToRender) {
     contactList.innerHTML = "";
+
+    let savedUser = document.querySelector('.saved-users');
+    savedUser.textContent = (`${users.length} saved`)
 
     const firstLetters = [...new Set(
         usersToRender.map(user => user.name[0].toUpperCase())
