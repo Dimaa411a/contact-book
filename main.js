@@ -118,7 +118,11 @@ function sortUsers(usersToRender) {
         usersToRender.forEach(user => {
             if (user.name[0].toUpperCase() !== letter) return;
 
-            const initials = user.name.match(/\b\w/g).join("");
+             const initials = user.name
+                .split(" ")
+                .map(word => word[0])
+                .join("")
+                .toUpperCase();
 
             ul.innerHTML += `
                 <li class="contact" data-id="${user.id}">
