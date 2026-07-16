@@ -128,7 +128,7 @@ function sortUsers(usersToRender) {
         usersToRender.forEach(user => {
             if (user.name[0].toUpperCase() !== letter) return;
 
-             const initials = user.name
+            const initials = user.name
                 .split(" ")
                 .map(word => word[0])
                 .join("")
@@ -249,6 +249,8 @@ const modealColor = document.querySelector("#modal-color");
 
 
 saveBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+
     users.push({
         id: users.length + 1,
         name: modaalName.value,
@@ -305,7 +307,8 @@ editBtn.addEventListener("click", () => {
     modalEdit.classList.remove("hidden");
 });
 
-saveEditBtn.addEventListener("click", () => {
+saveEditBtn.addEventListener("click", (event) => {
+    event.preventDefault();
 
     const user = users.find(user => user.id === selectedUserId);
 

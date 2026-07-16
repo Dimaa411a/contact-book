@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <link rel="stylesheet"  href="styles.css">
-</head>
-<body>
 
-    <main>
+    <title>Contact Book</title>
+
+    <link rel="stylesheet"  href="styles.css">
+
+    <link rel="icon" href="image/bookicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<main>
     <aside>
         <header class="contacts-header">
             <div class="contacts-info">
                 <h2>Contacts</h2>
                 <span class="saved-users">12 saved</span>
             </div>
-
             <button class="add-btn">+ Add contact</button>
 
             <label class="visually-hidden" for="search">Search contacts</label>
@@ -30,85 +33,88 @@
 
     </aside>
 
-        <section class="contact-details">
-            <header>
-                <div class="profile">
-                    <div class="avatar-mn" style="">MN</div>
-                    <div class="user-info">
-                        <h1>Maria Novak</h1>
-                        <span>Added Mar 14. avatar:initials fallback</span>
-                    </div>
+    <section class="contact-details">
+        <header>
+            <div class="profile">
+                <div class="avatar-mn" style="">MN</div>
+                <div class="user-info">
+                    <h1>Maria Novak</h1>
+                    <span>Added Mar 14. avatar:initials fallback</span>
                 </div>
-                <div class="action-btns">
-                    <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-
-                <div class="input-fields">
-                    <div class="field">
-                        <span class="label">PHONE</span>
-                        <span class="phone-field">+1 (312) 555-0146</span>
-                    </div>
-
-                    <div class="field">
-                        <span class="label">EMAIL</span>
-                        <span class="email-field">maria.novak@fastmail.com</span>
-                    </div>
-
-                    <div class="field">
-                        <span class="label">NOTE</span>
-                        <span class="note-field">
-            Study group partner — prefers texts over calls. Met at the Week 3 workshop.
-              </span>
-                    </div>
-                </div>
-            </header>
-        </section>
-    </main>
-    <div class="modal hidden" id="addModal">
-        <div class="modal-content">
-            <h2>Add Contact</h2>
-            <input id="modal-name" type="text" placeholder="Name">
-            <input id="modal-phone" type="text" placeholder="Phone">
-            <input id="modal-email" type="email" placeholder="Email">
-            <textarea id="modal-note" placeholder="Note"></textarea>
-            <div class="color-picker">
-                <span>icon color:</span>
-                <input type="color" id="modal-color">
             </div>
-            <div class="modal-buttons">
-                <button id="saveBtn">Save</button>
-                <button id="closeBtn">Cancel</button>
+            <div class="action-btns">
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
             </div>
+
+            <form class="input-fields">
+                <div class="field">
+                    <span class="label">PHONE</span>
+                    <span class="phone-field">+1 (312) 555-0146</span>
+                </div>
+
+                <div class="field">
+                    <span class="label">EMAIL</span>
+                    <span class="email-field">maria.novak@fastmail.com</span>
+                </div>
+
+                <div class="field">
+                    <span class="label">NOTE</span>
+                    <span class="note-field">
+                            Study group partner — prefers texts over calls. Met at the Week 3 workshop.
+                        </span>
+                </div>
+            </form>
+        </header>
+    </section>
+</main>
+
+<form class="modal hidden" id="addModal">
+    <div class="modal-content">
+        <h2>Add Contact</h2>
+        <input id="modal-name" type="text" placeholder="Name">
+        <input id="modal-phone" type="text" placeholder="Phone">
+        <input id="modal-email" type="email" placeholder="Email">
+        <textarea id="modal-note" placeholder="Note"></textarea>
+        <div class="color-picker">
+            <span>icon color:</span>
+            <input type="color" id="modal-color">
+        </div>
+        <div class="modal-buttons">
+            <button type='submit' id="saveBtn">Save</button>
+            <button type='button' id="closeBtn">Cancel</button>
         </div>
     </div>
-    <div class="modal hidden" id="addModalEdit">
-        <div class="modal-content-edit">
-            <h2>Edit contact</h2>
-            <input id="edit-name" type="text" placeholder="Name">
-            <input id="edit-phone" type="text" placeholder="Phone">
-            <input id="edit-email" type="email" placeholder="Email">
-            <textarea id="edit-note" placeholder="Note"></textarea>
-            <div class="color-picker">
-                <span>icon color:</span>
-                <input type="color" id="edit-color">
-            </div>
-            <div class="modal-buttons">
-                <button id="save-editBtn">Save</button>
-                <button id="close-editBtn">Cancel</button>
-            </div>
-        </div>
-    </div>
-    <div id="delete-modal" class="delete-modal hidden">
-        <div class="delete-box">
-            <h2>Are you sure?</h2>
+</form>
 
-            <div class="delete-buttons">
-                <button class="button-yes">Yes</button>
-                <button class="button-no">No</button>
-            </div>
+<form class="modal hidden" id="addModalEdit">
+    <div class="modal-content-edit">
+        <h2>Edit contact</h2>
+        <input id="edit-name" type="text" placeholder="Name">
+        <input id="edit-phone" type="text" placeholder="Phone">
+        <input id="edit-email" type="email" placeholder="Email">
+        <textarea id="edit-note" placeholder="Note"></textarea>
+        <div class="color-picker">
+            <span>icon color:</span>
+            <input type="color" id="edit-color">
+        </div>
+        <div class="modal-buttons">
+            <button type='submit' id="save-editBtn">Save</button>
+            <button type='button' id="close-editBtn">Cancel</button>
         </div>
     </div>
+</form>
+
+<div id="delete-modal" class="delete-modal hidden">
+    <div class="delete-box">
+        <h2>Are you sure?</h2>
+
+        <div class="delete-buttons">
+            <button class="button-yes" type="submit">Yes</button>
+            <button class="button-no" type='button'>No</button>
+        </div>
+    </div>
+</div>
 </body>
-    <script src="main.js"></script>
+<script src="scripts/main.js"></script>
 </html>
