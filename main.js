@@ -115,6 +115,16 @@ function sortUsers(usersToRender) {
         const letter = container.querySelector("h3").textContent;
         const ul = container.querySelector("ul");
 
+        if (selectedUserId !== null) {
+            const selectedContact = contactList.querySelector(
+                `.contact[data-id="${selectedUserId}"]`
+            );
+
+            if (selectedContact) {
+                selectContact(selectedContact);
+            }
+        }
+
         usersToRender.forEach(user => {
             if (user.name[0].toUpperCase() !== letter) return;
 
@@ -138,7 +148,9 @@ function sortUsers(usersToRender) {
                     </div>
                 </li>
             `;
+
         });
+
     });
 }
 
@@ -288,6 +300,8 @@ editBtn.addEventListener("click", () => {
     editNote.value = user.note;
     editColor.value = user.style;
 
+    sortUsers(users);
+
     modalEdit.classList.remove("hidden");
 });
 
@@ -321,11 +335,19 @@ buttonYes.addEventListener("click", () => {
     selectedUserId = null;
 
     delete_modal.classList.add("hidden");
+
+    const firstContact = contactList.querySelector(".contact");
+
+    if (firstContact) {
+        selectContact(firstContact);
+    }
 });
 
 
 deleteBtn.addEventListener("click", () => {
     delete_modal.classList.remove("hidden");
+
+
 });
 
 buttonNo.addEventListener("click", () => {

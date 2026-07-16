@@ -100,9 +100,10 @@ aside section{
 }
 
 .contact-group {
-    padding-bottom: 20px;
     margin: 20px 0 20px 20px;
 
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 .contact-group h3 {
@@ -121,9 +122,8 @@ aside section{
 .contact-list {
     list-style: none;
     margin:0;
-    overflow-y: auto;
-    max-height: 500px;
-
+    max-height: 100%;
+    padding-bottom:20px;
 }
 
 .contact-list ul{
@@ -165,7 +165,7 @@ aside section{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    align-self: flex-start;
+    align-self: center;
 }
 
 .profile h1, .profile span{
@@ -174,6 +174,8 @@ aside section{
 }
 
 .action-btns{
+    display: flex;
+    align-items: center;
     grid-row: 1;
     grid-column:2;
     width: max-content;
@@ -181,6 +183,9 @@ aside section{
 
 }
 .input-fields{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
     grid-row: 2;
     grid-column: 1/3;
 }
@@ -541,4 +546,26 @@ ul {
     .edit-btn, .delete-btn {
         align-self: center;
     }
+}
+
+@media(min-height: 1049px) {
+    .contact-details header {
+        width: 100%;
+        display: grid;
+        padding: 45px;
+        grid-template-columns: 65% 35%;
+        grid-template-rows: 25% 75%;
+    }
+
+    .contact-group {
+        margin: 20px 0 20px 20px;
+        max-height: 80vh;
+    }
+
+    .contact-list {
+        list-style: none;
+        margin:0;
+        max-height: 100%;
+    }
+
 }
