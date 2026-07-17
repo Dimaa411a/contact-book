@@ -6,10 +6,15 @@
 
     <title>Contact Book</title>
 
-    <link rel="stylesheet"  href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 
     <link rel="icon" href="image/bookicon.ico" type="image/x-icon">
-</head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;
+        0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kameron:wght@400..700&family=Nunito+Sans:ital,opsz,
+        wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet"></head>
 
 <body>
 <main>
@@ -49,17 +54,17 @@
 
             <form class="input-fields">
                 <div class="field">
-                    <span class="label">PHONE</span>
+                    <span class="label">PHONE:</span>
                     <span class="phone-field">+1 (312) 555-0146</span>
                 </div>
 
                 <div class="field">
-                    <span class="label">EMAIL</span>
+                    <span class="label">EMAIL:</span>
                     <span class="email-field">maria.novak@fastmail.com</span>
                 </div>
 
                 <div class="field">
-                    <span class="label">NOTE</span>
+                    <span class="label">NOTE:</span>
                     <span class="note-field">
                             Study group partner — prefers texts over calls. Met at the Week 3 workshop.
                         </span>
@@ -72,12 +77,16 @@
 <form class="modal hidden" id="addModal">
     <div class="modal-content">
         <h2>Add Contact</h2>
+        <label for="modal-name">Name</label>
         <input id="modal-name" type="text" placeholder="Name">
+        <label for="modal-phone">Phone</label>
         <input id="modal-phone" type="text" placeholder="Phone">
+        <label for="modal-email">Email</label>
         <input id="modal-email" type="email" placeholder="Email">
+        <label for="modal-note">Note</label>
         <textarea id="modal-note" placeholder="Note"></textarea>
         <div class="color-picker">
-            <span>icon color:</span>
+            <label for="modal-color">Icon color: </label>
             <input type="color" id="modal-color">
         </div>
         <div class="modal-buttons">
@@ -90,12 +99,16 @@
 <form class="modal hidden" id="addModalEdit">
     <div class="modal-content-edit">
         <h2>Edit contact</h2>
-        <input id="edit-name" type="text" placeholder="Name">
+        <label for="edit-name">Name</label>
+            <input id="edit-name" type="text" placeholder="Name">
+        <label for="edit-phone">Phone</label>
         <input id="edit-phone" type="text" placeholder="Phone">
+        <label for="edit-email">Email</label>
         <input id="edit-email" type="email" placeholder="Email">
+        <label for="edit-note">Note</label>
         <textarea id="edit-note" placeholder="Note"></textarea>
         <div class="color-picker">
-            <span>icon color:</span>
+            <label for="edit-color">Icon color: </label>
             <input type="color" id="edit-color">
         </div>
         <div class="modal-buttons">
