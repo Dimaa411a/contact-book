@@ -554,6 +554,11 @@ ul {
     .edit-btn, .delete-btn {
         align-self: center;
     }
+
+    .profile {
+        margin-bottom: 30px;
+    }
+
 }
 
 @media(min-height: 1049px) {
@@ -611,9 +616,10 @@ ul {
     }
 
     .profile {
-        margin-left: 60px;
+        margin: 5px 0 5px 60px;
         gap: 10px;
         grid-row:1;
+        align-items: center ;
     }
 
     .contact-details h1{
