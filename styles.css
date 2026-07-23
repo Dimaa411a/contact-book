@@ -692,5 +692,9 @@ ul {
         grid-row: 2;
         width: 80vw;
     }
+
+    .modal-content, .modal-content-edit{
+    margin: 0 20px 0 20px;
+    }
 }
 

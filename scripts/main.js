@@ -1,4 +1,4 @@
-let users = [
+let defaultUsers  = [
     {
         id:0,
         name: "John Doe",
@@ -89,6 +89,8 @@ const userName = document.querySelector(".user-info h1");
 const userPhone = document.querySelector(".phone-field");
 const userEmail = document.querySelector(".email-field");
 const userNote = document.querySelector(".note-field");
+
+let users = JSON.parse(localStorage.getItem("users")) || defaultUsers;
 
 let selectedUserId = null;
 
@@ -260,6 +262,8 @@ saveBtn.addEventListener("click", (event) => {
         style: modealColor.value,
     },)
 
+    localStorage.setItem("users", JSON.stringify(users));
+
     sortUsers(users);
 
     modaalName.value = "";
@@ -302,6 +306,8 @@ editBtn.addEventListener("click", () => {
     editNote.value = user.note;
     editColor.value = user.style;
 
+    localStorage.setItem("users", JSON.stringify(users));
+
     sortUsers(users);
 
     modalEdit.classList.remove("hidden");
@@ -317,6 +323,8 @@ saveEditBtn.addEventListener("click", (event) => {
     user.email = editEmail.value;
     user.note = editNote.value;
     user.style = editColor.value;
+
+    localStorage.setItem("users", JSON.stringify(users));
 
     sortUsers(users);
 
